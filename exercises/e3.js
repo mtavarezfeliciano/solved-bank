@@ -9,9 +9,15 @@
  * */
 
 export function getAverage(array) {
-  // Your code goes here...
-
+  let avg = 0;
+  for (let i = 0; i < array.length; i++) {
+    let totalNum = array[i];
+    avg += totalNum;
+  }
+  avg = avg / array.length;
+  return avg;
 }
+getAverage([22, 45, 4, 65]);
 
 
 /** 
@@ -22,9 +28,19 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  // Your code goes here...
 
+  let sum = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (/[0-9]/.test(str[i])) { // /[0-9]/ is a regular expression given to find if the character is a string or number
+      sum += parseInt(str[i]); // if a number is found its passed into the sum variable as an integer and auto added up
+    }
+  }
+  return sum;
 }
+
+getStringSum("GH2U87A");
+getStringSum("GHIUJUHSG"); 
 
 
 // === TEST YOURSELF ===
