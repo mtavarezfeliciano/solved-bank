@@ -4,9 +4,10 @@
 // Array example: bankAccounts in /data/data.js
 // getAllClientNames(bankAccounts) => ['Kevin', 'Spenser']
 
-export function getAllClientNames(array) {
-  // Your code goes here...
 
+export function getAllClientNames(array) {
+  let names = array.map(person => person.name); //set variable for names, then map through the array and find just person's names.
+  return names; //returns just the names
 }
 
 
