@@ -7,7 +7,19 @@
 
 export function flatArrays(array) {
   // Your code goes here...
+  let flattened = [];
+  //[['d', 'r'], 'z', 'b', ['f', 'y']];
 
+  for (let i = 0; i < array.length; i++) { // go through first part of array 
+    if (Array.isArray(array[i])) { // if its an array, continue going through others
+      for (let x = 0; x < array[i].length; x++) { // loop through the next set of arrays inside array
+        flattened.push(array[i][x]); // push those nested arrays first, working backwards
+      }
+    } else { // then push the first array
+      flattened.push(array[i]);
+    }
+  }
+  return flattened;
 }
 
 
