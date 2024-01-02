@@ -5,21 +5,28 @@
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
 export function getClientsWithWrongBalance(array) {
-
   let wrongBalance = 0;
 
   for (let i = 0; i < array.length; i++) {
+    let trueValue = 0;
+
     let totalDeposits = 0;
-    if (array[i].deposits) {
-      totalDeposits += array[i].deposits;
-    }
     let totalWithdrawals = 0;
-    if (array[i].withdrawals) {
-      totalWithdrawals += array[i].withdrawals;
+
+    if (array[i].deposits) {
+      for (let x = 0; x < array[i].deposits.length; x++) {
+        totalDeposits += array[i].deposits[x];
+      }
     }
-    let totalDifference = totalDeposits - totalWithdrawals;
-    if (array[i].balance != totalDifference) {
-      wrongBalance = array[2]; //THE GOD DAMN ANSWER ISS array[2] BUT I DONT KNOW HOW TO GET IT
+
+    if (array[i].withdrawals) {
+      for (let j = 0; j < array[i].withdrawals.length; j++) {
+        totalWithdrawals += array[i].withdrawals[j];
+      }
+    }
+    trueValue = totalDeposits - totalWithdrawals;
+    if (trueValue != array[i].balance) {
+      wrongBalance = array[i];
     }
   }
   return wrongBalance ? [wrongBalance] : [];
