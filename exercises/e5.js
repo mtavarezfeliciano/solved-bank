@@ -6,8 +6,13 @@
 
 
 export function getAllClientNames(array) {
-  let names = array.map(person => person.name); //set variable for names, then map through the array and find just person's names.
-  return names; //returns just the names
+  let names = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].name) {
+      names.push(array[i].name);
+    }
+  }
+  return names;
 }
 
 
